@@ -507,6 +507,13 @@ const TIMELINE = [
 /* ===================== PROJECTS (GitHub live) ===================== */
 const USER = "Educofseal";
 const FEATURED = [
+  {repo:"lease-lens", featured:true,
+    story:"Passei um tempo cercado de contratos de locação numa operação imobiliária. A pergunta que mais se repetia — 'quais vencem esse trimestre?' — era chata de responder na mão. Construí uma ferramenta que responde sozinha.",
+    stack:["Python","pdfplumber","SQLite","Streamlit"], demo:null,
+    study:{curiosidade:"Dá pra transformar uma pasta de contratos em PDF em respostas operacionais — o que vence, aluguel médio, o que está com dado faltando?",
+      resolvi:"Pipeline em camadas: extração de PDF com pdfplumber, estruturação por regex com score de confiança, armazenamento em SQLite e consultas agregadas (SQL analítico). UI em Streamlit pra visualizar a carteira e testar um contrato.",
+      desafio:"Um regex de endereço parava no primeiro ponto e truncava o dado marcando 100% de confiança — me ensinou que 'achou algo' não é 'achou certo'.",
+      aprendi:"Extração de PDF, regex pra dados estruturados, SQL analítico, e arquitetura em camadas que separa domínio de interface. Tudo com contratos sintéticos, por design."}},
   {repo:"Player2", featured:true,
     story:"Fiquei fascinado por como conexões entre pessoas poderiam ser representadas matematicamente. Isso me levou a construir o Player2 e implementar Dijkstra, BFS e DFS do zero pra ordenar o feed por afinidade.",
     stack:["Python","Flet","Grafos do zero","Teoria dos grafos"], demo:null,
