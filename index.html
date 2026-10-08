@@ -430,10 +430,39 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .nav-links a{padding:15px var(--s3);width:100%;font-size:.94rem}
   .nav-tog{display:block}
   .nav-cta{display:none}
+}
+
+/* ============ o herói sobre o vídeo VERTICAL ============
+   Esta consulta tem que ser idêntica à PORTRAIT_Q do JavaScript, senão
+   a tela recebe uma filmagem e o layout de texto da outra.
+   As faixas se deitam sobre o quadro em vez de flanquear a ação, e cada
+   uma leva o escurecimento que o momento dela pede: o clímax lava tudo
+   de branco, o começo e o fim não. */
+@media (max-width:760px),(orientation:portrait) and (max-width:1024px){
+  .hero{height:500vh}
   .band{padding:0 22px}
-  .band[data-pos="right"]{text-align:left;justify-content:flex-start}
-  .band[data-pos="right"]::before{background:radial-gradient(ellipse 74% 62% at 40% 50%,
-    rgba(4,6,14,.74) 0%,rgba(4,6,14,.5) 46%,rgba(4,6,14,0) 78%)}
+  .band-in{max-width:none}
+  .band h1{font-size:clamp(2.7rem,13.5vw,4.2rem)}
+  .band h2{font-size:clamp(1.65rem,6.8vw,2.5rem)}
+  .band .sub{max-width:34ch}
+
+  .band[data-pos="left"],.band[data-pos="right"]{
+    align-items:flex-end;justify-content:flex-start;text-align:left;padding-bottom:15vh}
+  .band[data-pos="left"]::before,.band[data-pos="right"]::before{
+    background:linear-gradient(0deg,rgba(4,6,14,.9) 0%,rgba(4,6,14,.7) 30%,
+      rgba(4,6,14,.22) 58%,rgba(4,6,14,0) 78%)}
+
+  .band[data-pos="top"]{align-items:center;justify-content:center;text-align:left;padding-top:0}
+  .band[data-pos="top"] .band-in{width:100%}
+  .band[data-pos="top"]::before{background:radial-gradient(ellipse 155% 27% at 50% 50%,
+    rgba(4,6,14,.86) 0%,rgba(4,6,14,.58) 46%,rgba(4,6,14,0) 88%)}
+
+  .band[data-pos="settle"]{align-items:flex-start;justify-content:flex-start;
+    text-align:left;padding-top:13vh}
+  .band[data-pos="settle"] .sub{margin-left:0;margin-right:0}
+  .band[data-pos="settle"] .cta-row{justify-content:flex-start}
+  .band[data-pos="settle"]::before{background:radial-gradient(ellipse 160% 46% at 50% 24%,
+    rgba(4,6,14,.88) 0%,rgba(4,6,14,.66) 46%,rgba(4,6,14,0) 84%)}
 }
 @media (pointer:coarse){
   .btn,.hold-btn{min-height:44px}
@@ -445,11 +474,10 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 }
 @media (max-height:560px){.cue{display:none}}
 
-/* ============ o portão do herói estático: cinco condições ============ */
-@media (max-width:720px),
-       (orientation:portrait) and (max-width:1024px),
-       (orientation:portrait) and (pointer:coarse),
-       (orientation:landscape) and (pointer:coarse) and (max-height:560px),
+/* ============ o portão do herói estático: duas condições ============
+   O celular recebe o vídeo vertical, então sobram só os casos onde
+   jornada nenhuma cabe: aparelho deitado sem altura, e movimento reduzido. */
+@media (orientation:landscape) and (pointer:coarse) and (max-height:560px),
        (prefers-reduced-motion:reduce){
   .hero{height:auto}
   .stage{position:relative;height:auto;min-height:100svh;display:flex;align-items:center;
@@ -867,8 +895,19 @@ var cue = document.getElementById('cue');
 var heroSec = document.getElementById('topo');
 var bandEls = [].slice.call(document.querySelectorAll('.band'));
 
+// Duas filmagens: a deitada para telas largas e a VERTICAL para celular.
+// O corte vertical é dedicado, não um recorte acidental da deitada.
 var VIDEO_URL = 'assets/hero-scrub.mp4';
 var POSTER_URL = 'assets/hero-poster.jpg';
+var MOBILE_VIDEO_URL = 'assets/hero-mobile.mp4';
+var MOBILE_POSTER_URL = 'assets/hero-mobile-poster.jpg';
+var MOBILE_VIDEO_BYTES = 2548608;
+var PORTRAIT_Q = matchMedia('(max-width: 760px), (orientation: portrait) and (max-width: 1024px)');
+function heroSrc(){
+  return PORTRAIT_Q.matches
+    ? { v: MOBILE_VIDEO_URL, p: MOBILE_POSTER_URL, b: MOBILE_VIDEO_BYTES }
+    : { v: VIDEO_URL, p: POSTER_URL, b: VIDEO_BYTES };
+}
 var ENDING_URL = 'assets/hero-ending.jpg';
 var VIDEO_BYTES = 3519586;
 
@@ -1064,15 +1103,18 @@ function startBlobFetch(){
   loadHeroBlob().catch(failVideo);
 }
 
+var blobURL = null;
+
 function loadHeroBlob(){
+  var src = heroSrc();
   var ctrl = new AbortController();
   var watchdog = setTimeout(function(){ ctrl.abort(); }, 20000);
   var opts = { signal: ctrl.signal };
   try { opts.priority = 'low'; } catch (e) {}
 
-  return fetch(VIDEO_URL, opts).then(function(res){
+  return fetch(src.v, opts).then(function(res){
     if (!res.ok || !res.body) throw new Error('sem corpo');
-    var total = Number(res.headers.get('Content-Length')) || VIDEO_BYTES;
+    var total = Number(res.headers.get('Content-Length')) || src.b;
     var reader = res.body.getReader();
     var chunks = [], got = 0, lastRing = 0;
 
@@ -1096,7 +1138,9 @@ function loadHeroBlob(){
     return pump().then(function(){
       clearTimeout(watchdog);
       ring.style.setProperty('--ld', 0);
-      video.src = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }));
+      if (blobURL) URL.revokeObjectURL(blobURL);
+      blobURL = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }));
+      video.src = blobURL;
       video.load();
       video.addEventListener('canplay', function(){
         requestSeek(heroProgress() * video.duration);
@@ -1109,21 +1153,20 @@ function loadHeroBlob(){
 function initHeroOnce(){
   if (heroInit) return;
   heroInit = true;
-  posterEl.style.backgroundImage = "url('" + POSTER_URL + "')";
+  var src = heroSrc();
+  posterEl.style.backgroundImage = "url('" + src.p + "')";
   var img = new Image();
   img.onload = startBlobFetch;
   img.onerror = startBlobFetch;
-  img.src = POSTER_URL;
+  img.src = src.p;
   setTimeout(startBlobFetch, 4000);
 }
 
 /* ============================================================
    5. o portão do herói estático: cinco condições, ao vivo
    ============================================================ */
+// Têm que bater, caractere por caractere, com o media query do CSS lá em cima.
 var GATES = [
-  '(max-width: 720px)',
-  '(orientation: portrait) and (max-width: 1024px)',
-  '(orientation: portrait) and (pointer: coarse)',
   '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)',
   '(prefers-reduced-motion: reduce)'
 ];
@@ -1154,6 +1197,21 @@ MQLS.forEach(function(m){
   if (m.addEventListener) m.addEventListener('change', applyHeroMode);
   else if (m.addListener) m.addListener(applyHeroMode);
 });
+
+// Girar o aparelho troca a filmagem: a vertical e a deitada são cortes
+// diferentes, e manter a errada deixaria a composição fora de lugar.
+function swapHeroSource(){
+  if (!heroInit) return;
+  heroInit = false; fetchStarted = false;
+  stage.classList.remove('video-ready', 'video-failed');
+  seekBusy = false; pendingTime = null;
+  try { video.removeAttribute('src'); video.load(); } catch (e) {}
+  if (ring) { ring.style.display = ''; ring.style.setProperty('--ld', 126); }
+  initHeroOnce();
+  onScroll();
+}
+if (PORTRAIT_Q.addEventListener) PORTRAIT_Q.addEventListener('change', swapHeroSource);
+else if (PORTRAIT_Q.addListener) PORTRAIT_Q.addListener(swapHeroSource);
 
 /* ============================================================
    6. entradas, o fio, e os nós de seção
