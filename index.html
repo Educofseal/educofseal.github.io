@@ -4,21 +4,21 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Eduardo Alves — toda coisa aqui começou como pergunta</title>
-<meta name="description" content="Eduardo Alves, desenvolvedor. Python, web e dados. Cinco projetos, cinco perguntas que vieram antes do código. Nenhum deles nasceu de tutorial." />
-<meta name="theme-color" content="#080A11" />
+<meta name="description" content="Eduardo Alves, desenvolvedor. Python, web e dados. Três projetos, três perguntas que vieram antes do código. Nenhum deles nasceu de tutorial." />
+<meta name="theme-color" content="#070A1F" />
 <meta name="color-scheme" content="dark" />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Eduardo Alves — toda coisa aqui começou como pergunta" />
-<meta property="og:description" content="Desenvolvedor. Python, web e dados. Cinco projetos, cinco perguntas que vieram antes do código." />
+<meta property="og:description" content="Desenvolvedor. Python, web e dados. Três projetos, três perguntas que vieram antes do código." />
 <meta property="og:url" content="https://educofseal.github.io/" />
-<meta property="og:image" content="https://educofseal.github.io/assets/hero-ending.jpg" />
-<meta property="og:image:width" content="1920" />
-<meta property="og:image:height" content="1072" />
+<meta property="og:image" content="https://educofseal.github.io/assets/banner-linkedin.png" />
+<meta property="og:image:width" content="1584" />
+<meta property="og:image:height" content="396" />
 <link rel="canonical" href="https://educofseal.github.io/" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080A11'/%3E%3Ccircle cx='16' cy='9' r='2.4' fill='%238B84B5'/%3E%3Ccircle cx='16' cy='16' r='2.4' fill='%238B84B5' opacity='.72'/%3E%3Ccircle cx='16' cy='23' r='3' fill='%235FD0FF'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070A1F'/%3E%3Ccircle cx='16' cy='9' r='2.4' fill='%238E88E8'/%3E%3Ccircle cx='16' cy='16' r='2.4' fill='%238E88E8' opacity='.72'/%3E%3Ccircle cx='16' cy='23' r='3' fill='%234FD6F2'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,13 +26,14 @@
 
 <style>
 :root{
-  --canvas:#080A11; --canvas-2:#0C0F17;
-  --panel:#10141E; --panel-2:#161B27;
-  --line:#232A38; --line-2:#5A6685;
-  --text:#E8EBF2; --text-2:#A7B0C2; --muted:#79839A;
-  --noise:#8B84B5;
-  --accent:#5FD0FF; --accent-hover:#8FE0FF; --accent-muted:rgba(95,208,255,.14);
-  --ink:#06131C;
+  /* paleta do banner do perfil: índigo profundo, ciano e violeta */
+  --canvas:#070A1F; --canvas-2:#0A0F2B;
+  --panel:#0E1435; --panel-2:#151C44;
+  --line:#1E2857; --line-2:#48589A;
+  --text:#EEF1FA; --text-2:#B4BDD8; --muted:#7D88B0;
+  --noise:#8E88E8;
+  --accent:#4FD6F2; --accent-hover:#8BE8FF; --accent-muted:rgba(79,214,242,.14);
+  --ink:#04121C;
 
   --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
   --body:'Public Sans',system-ui,-apple-system,sans-serif;
@@ -40,7 +41,7 @@
 
   --ease:cubic-bezier(.22,.61,.36,1);
   --ease-soft:cubic-bezier(.4,0,.2,1);
-  --tshadow:0 1px 2px rgba(4,6,12,.95),0 3px 12px rgba(4,6,12,.8),0 10px 44px rgba(4,6,12,.82);
+  --tshadow:0 1px 2px rgba(4,6,16,.95),0 3px 12px rgba(4,6,16,.8),0 10px 44px rgba(4,6,16,.82);
 
   --wrap:1120px;
   --s1:8px; --s2:16px; --s3:24px; --s4:36px; --s5:56px; --s6:84px; --s7:120px;
@@ -54,7 +55,7 @@ body{
   font-family:var(--body);font-size:17px;line-height:1.65;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-img,video,svg{max-width:100%;display:block}
+img,video,svg,canvas{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--accent-muted);color:#fff}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
@@ -65,11 +66,11 @@ a{color:inherit;text-decoration:none}
 
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--s3)}
 
-/* ============ camada de ambiente fixa ============ */
+/* ============ camada de ambiente fixa (resto da página) ============ */
 .env{position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(ellipse 70% 50% at 18% 12%,rgba(95,208,255,.07),transparent 62%),
-    radial-gradient(ellipse 60% 55% at 84% 78%,rgba(139,132,181,.07),transparent 64%),
+    radial-gradient(ellipse 70% 50% at 18% 12%,rgba(48,190,220,.07),transparent 62%),
+    radial-gradient(ellipse 60% 55% at 84% 78%,rgba(110,96,230,.08),transparent 64%),
     var(--canvas);
 }
 .env::after{content:"";position:absolute;inset:-20%;
@@ -81,9 +82,9 @@ a{color:inherit;text-decoration:none}
 
 /* ============ nav ============ */
 .nav{position:fixed;top:0;left:0;right:0;z-index:90;
-  background:rgba(8,10,17,.6);backdrop-filter:blur(14px);
+  background:rgba(7,10,31,.6);backdrop-filter:blur(14px);
   border-bottom:1px solid transparent;transition:border-color .4s var(--ease),background .4s var(--ease)}
-.nav.solid{border-bottom-color:var(--line);background:rgba(8,10,17,.86)}
+.nav.solid{border-bottom-color:var(--line);background:rgba(7,10,31,.88)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:var(--s3)}
 .brand{font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:-.02em;
   display:inline-flex;align-items:center;gap:11px}
@@ -100,28 +101,18 @@ a{color:inherit;text-decoration:none}
 .nav-tog{display:none;background:none;border:1px solid var(--line-2);color:var(--text);
   width:42px;height:42px;border-radius:10px;cursor:pointer;font-size:1.05rem;line-height:1}
 
-/* ============ herói com scrub ============ */
+/* ============ herói: ondas de luz com texto que acompanha o scroll ============ */
 .hero{position:relative;height:600vh;z-index:1;padding:0}
-.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--canvas)}
-.poster{position:absolute;inset:0;background-size:cover;background-position:center;
-  transform:scale(1.02);transition:opacity .9s var(--ease)}
-#hero{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:0;transition:opacity .8s var(--ease);will-change:transform;transform:translateZ(0)}
-.stage.video-ready #hero{opacity:1}
-.stage.video-ready .poster{opacity:0}
-.stage.video-failed #hero{display:none}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--canvas)}
+#bg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .scrim{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 120% 92% at 50% 44%,rgba(6,8,16,0) 32%,rgba(6,8,16,.66) 100%)}
+  background:radial-gradient(ellipse 120% 92% at 50% 44%,rgba(5,7,24,0) 32%,rgba(5,7,24,.6) 100%)}
 
-/* anel de carregamento */
-.ring{position:absolute;right:28px;bottom:26px;width:44px;height:44px;color:var(--accent);
-  opacity:.85;transform:rotate(-90deg)}
-.ring circle{transition:stroke-dashoffset .18s linear}
-.stage.video-ready .ring{opacity:0;transition:opacity .5s var(--ease)}
+/* indicador de rolagem */
 .cue{position:absolute;right:26px;bottom:24px;color:var(--text-2);font-family:var(--mono);
   font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;display:flex;
-  align-items:center;gap:9px;text-shadow:0 1px 3px rgba(4,6,12,.9);
-  background:rgba(8,8,15,.55);border:1px solid rgba(96,96,126,.3);border-radius:10px;
+  align-items:center;gap:9px;text-shadow:0 1px 3px rgba(4,6,16,.9);
+  background:rgba(7,9,28,.55);border:1px solid rgba(96,106,170,.3);border-radius:10px;
   padding:7px 13px;backdrop-filter:blur(10px)}
 .cue i{width:1px;height:26px;background:linear-gradient(var(--accent),transparent);display:block;
   animation:cuedrop 2.6s var(--ease-soft) infinite;animation-delay:-.8s}
@@ -135,31 +126,31 @@ a{color:inherit;text-decoration:none}
   opacity:calc(.25 + .75*var(--k,1))}
 .band[data-pos="left"]{align-items:center;justify-content:flex-start}
 .band[data-pos="left"]::before{background:radial-gradient(ellipse 64% 70% at 26% 50%,
-  rgba(4,6,14,.8) 0%,rgba(4,6,14,.58) 46%,rgba(4,6,14,0) 78%)}
+  rgba(4,6,18,.8) 0%,rgba(4,6,18,.58) 46%,rgba(4,6,18,0) 78%)}
 .band[data-pos="right"]{align-items:center;justify-content:flex-end;text-align:right}
 .band[data-pos="right"]::before{background:radial-gradient(ellipse 64% 70% at 74% 50%,
-  rgba(4,6,14,.8) 0%,rgba(4,6,14,.58) 46%,rgba(4,6,14,0) 78%)}
+  rgba(4,6,18,.8) 0%,rgba(4,6,18,.58) 46%,rgba(4,6,18,0) 78%)}
 .band[data-pos="top"]{align-items:flex-start;justify-content:center;text-align:center;padding-top:19vh}
 .band[data-pos="top"]::before{background:radial-gradient(ellipse 80% 58% at 50% 27%,
-  rgba(4,6,14,.9) 0%,rgba(4,6,14,.72) 44%,rgba(4,6,14,0) 80%)}
+  rgba(4,6,18,.9) 0%,rgba(4,6,18,.72) 44%,rgba(4,6,18,0) 80%)}
 .band[data-pos="settle"]{align-items:flex-start;justify-content:center;text-align:center;padding-top:15vh}
 .band[data-pos="settle"]::before{background:radial-gradient(ellipse 82% 58% at 50% 30%,
-  rgba(4,6,14,.76) 0%,rgba(4,6,14,.52) 46%,rgba(4,6,14,0) 78%)}
+  rgba(4,6,18,.76) 0%,rgba(4,6,18,.52) 46%,rgba(4,6,18,0) 78%)}
 .band[data-pos="settle"] .band-in{max-width:780px}
 
 .band .kick{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--accent);margin-bottom:var(--s3);display:inline-block;
-  background:rgba(8,8,15,.62);border:1px solid rgba(96,96,126,.34);border-radius:10px;
-  padding:7px 13px;backdrop-filter:blur(10px);text-shadow:0 1px 3px rgba(4,6,12,.9)}
+  background:rgba(7,9,28,.62);border:1px solid rgba(96,106,170,.34);border-radius:10px;
+  padding:7px 13px;backdrop-filter:blur(10px);text-shadow:0 1px 3px rgba(4,6,16,.9)}
 .band h1,.band h2{font-family:var(--display);font-weight:700;letter-spacing:-.035em;
   line-height:1.02;text-shadow:var(--tshadow);color:#fff}
 .band h1{font-size:clamp(3rem,9vw,6.4rem)}
 .band h2{font-size:clamp(1.8rem,4.4vw,3.3rem);line-height:1.08;letter-spacing:-.028em}
-.band .sub{margin-top:var(--s3);font-size:clamp(1rem,1.9vw,1.22rem);color:#DFE5F2;
+.band .sub{margin-top:var(--s3);font-size:clamp(1rem,1.9vw,1.22rem);color:#E0E6F5;
   text-shadow:var(--tshadow);max-width:44ch}
 .band[data-pos="right"] .sub,.band[data-pos="top"] .sub,.band[data-pos="settle"] .sub{margin-left:auto}
 .band[data-pos="top"] .sub,.band[data-pos="settle"] .sub{margin-right:auto}
-.band .role{font-family:var(--mono);font-size:clamp(.84rem,1.5vw,1rem);color:#EAEEF6;
+.band .role{font-family:var(--mono);font-size:clamp(.84rem,1.5vw,1rem);color:#EEF2FA;
   text-shadow:var(--tshadow);margin-top:var(--s3);letter-spacing:.02em}
 
 /* letras e palavras divididas */
@@ -187,13 +178,15 @@ a{color:inherit;text-decoration:none}
 .e-rise .cta-row{--kb:clamp(0,(var(--k,0) - .76)*4.4,1);opacity:var(--kb);
   transform:translateY(calc((1 - var(--kb))*16px))}
 
-.cta-row{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4);pointer-events:auto}
+/* os botões só recebem clique quando a faixa deles está visível */
+.cta-row{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4);pointer-events:none}
+.band.on .cta-row{pointer-events:auto}
 .band[data-pos="settle"] .cta-row{justify-content:center}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
   font-family:var(--mono);font-size:.86rem;letter-spacing:.01em;
   padding:13px 24px;border-radius:999px;border:1px solid var(--line-2);color:var(--text);
-  background:rgba(16,20,30,.6);backdrop-filter:blur(8px);cursor:pointer;text-shadow:none;
+  background:rgba(14,20,53,.6);backdrop-filter:blur(8px);cursor:pointer;text-shadow:none;
   transition:background .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
 .btn:hover{border-color:var(--accent);color:var(--accent-hover);transform:translateY(-2px)}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--ink);font-weight:500}
@@ -213,7 +206,7 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--noise);background:var(--canvas);transform:translateY(-5px);
   transition:border-color .5s var(--ease),background .5s var(--ease),box-shadow .5s var(--ease)}
 .spine-node.lit{border-color:var(--accent);background:var(--accent);
-  box-shadow:0 0 0 4px var(--accent-muted),0 0 14px rgba(95,208,255,.5)}
+  box-shadow:0 0 0 4px var(--accent-muted),0 0 14px rgba(79,214,242,.5)}
 @media (max-width:1279px){.spine{display:none}}
 
 section{position:relative;padding:var(--s7) 0}
@@ -264,21 +257,26 @@ h2.title{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-h
 .proj-links{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4)}
 .proj-media{position:relative}
 .shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);
-  box-shadow:0 28px 70px rgba(2,4,10,.62)}
+  box-shadow:0 28px 70px rgba(2,4,14,.62)}
 .shot-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);
   background:var(--panel-2)}
 .shot-bar i{width:9px;height:9px;border-radius:50%;background:var(--line-2);display:block}
 .shot-bar span{margin-left:8px;font-family:var(--mono);font-size:.7rem;color:var(--muted);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .shot img{width:100%;height:auto}
-.noshot{border:1px solid var(--line);border-radius:14px;background:
-  linear-gradient(160deg,var(--panel),var(--canvas-2));padding:clamp(28px,5vw,48px);
-  min-height:270px;display:flex;flex-direction:column;justify-content:center;gap:var(--s2);position:relative;overflow:hidden}
-.noshot .nm{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-.noshot .nv{font-family:var(--display);font-weight:700;font-size:clamp(2rem,5vw,3rem);
-  letter-spacing:-.03em;color:var(--text);line-height:1}
-.noshot .nv em{color:var(--accent);font-style:normal}
-.noshot .nl{color:var(--text-2);font-size:.94rem;max-width:36ch}
+
+/* o mesmo app no celular, sobre o canto do navegador: mostra que o layout se adapta */
+.duo{position:relative;padding:0 9% 9% 0}
+.phone{border:1px solid var(--line-2);border-radius:18px;overflow:hidden;background:var(--panel)}
+.duo .phone{position:absolute;right:0;bottom:0;width:27%;box-shadow:0 22px 50px rgba(2,4,14,.72)}
+.phone img{width:100%;height:auto;aspect-ratio:390 / 740;object-fit:cover;object-position:top}
+
+/* o Player2 é um app de celular: duas telas lado a lado */
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.phones .phone{box-shadow:0 18px 44px rgba(2,4,14,.6)}
+.phones .phone img{aspect-ratio:474 / 862}
+.media-note{margin-top:var(--s2);color:var(--muted);font-size:.86rem}
+@media (max-width:560px){.duo{padding:0 7% 12% 0}.duo .phone{width:31%;border-radius:12px}}
 
 /* o momento interativo */
 .hold{margin-top:var(--s4);border:1px solid var(--line);border-radius:14px;background:var(--panel);
@@ -289,7 +287,7 @@ h2.title{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-h
 .hold-cost{font-family:var(--mono);font-size:.86rem;color:var(--accent)}
 .graph{width:100%;height:auto;display:block}
 .ge{stroke:var(--line-2);stroke-width:1.2;opacity:.5}
-.ge.on{stroke:var(--accent);stroke-width:2.2;opacity:1;filter:drop-shadow(0 0 5px rgba(95,208,255,.55))}
+.ge.on{stroke:var(--accent);stroke-width:2.2;opacity:1;filter:drop-shadow(0 0 5px rgba(79,214,242,.55))}
 .gw{fill:var(--text-2);font-family:var(--mono);font-size:13px;
   stroke:var(--panel);stroke-width:3.5;paint-order:stroke fill}
 .gn{fill:var(--panel-2);stroke:var(--line-2);stroke-width:1.2}
@@ -354,7 +352,7 @@ h2.title{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-h
 
 /* ---- 6.6 ferramentas ---- */
 #ferramentas{background:var(--canvas-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.tools{margin-top:var(--s6);display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:var(--s4)}
+.tools{margin-top:var(--s6);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:var(--s4)}
 .tool h3{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
   color:var(--accent);margin-bottom:var(--s3)}
 .tool .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -363,7 +361,7 @@ h2.title{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-h
 .tools-note b{color:var(--text);font-weight:500}
 
 /* ---- 6.7 faq ---- */
-.faq{margin-top:var(--s6);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+.faq{margin-top:var(--s6);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));
   gap:var(--s4)}
 .qa{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:var(--s4);
   transition:border-color .4s var(--ease),transform .4s var(--ease)}
@@ -393,9 +391,9 @@ h2.title{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-h
 .ok[hidden]{display:none}
 .direct{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4);align-items:center}
 .ending{margin-top:var(--s5);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}
-.ending img{width:100%;height:230px;object-fit:cover;opacity:.85}
-.ending figcaption{position:absolute;left:0;right:0;bottom:0;padding:var(--s4);
-  background:linear-gradient(transparent,rgba(6,8,16,.9));font-family:var(--mono);font-size:.76rem;
+.ending img{width:100%;height:auto;aspect-ratio:1584 / 396;object-fit:cover}
+.ending figcaption{position:absolute;left:0;right:0;bottom:0;padding:var(--s4) var(--s3) var(--s2);
+  background:linear-gradient(transparent,rgba(5,7,24,.92));font-family:var(--mono);font-size:.74rem;
   letter-spacing:.14em;text-transform:uppercase;color:var(--text-2)}
 
 footer{border-top:1px solid var(--line);padding:var(--s5) 0;position:relative;z-index:2;background:var(--canvas)}
@@ -405,13 +403,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0;position:relative;z-
 .foot-links a{transition:color .3s var(--ease)}
 .foot-links a:hover{color:var(--accent)}
 
-/* ============ elementos vivos, nível sussurro ============ */
-.vis .pulse{animation:pulse 7s var(--ease-soft) infinite;animation-delay:-2.4s}
-@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
-.vis .glow::after{content:"";position:absolute;inset:-40%;pointer-events:none;z-index:-1;
-  background:radial-gradient(circle at 50% 50%,var(--accent-muted),transparent 62%);
-  animation:breathe 9s var(--ease-soft) infinite;animation-delay:-3.1s}
-@keyframes breathe{0%,100%{opacity:.32}50%{opacity:.9}}
+/* ============ animações param quando a aba fica oculta ============ */
 body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused !important}
 
 /* ============ responsivo ============ */
@@ -420,10 +412,10 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .proj:nth-child(even) .proj-media{order:0}
   .proj-media{margin-bottom:var(--s2)}
 }
-@media (max-width:760px){
-  body{font-size:16px}
-  :root{--s6:60px;--s7:76px}
-  .nav-links{position:fixed;inset:64px 0 auto 0;background:rgba(8,10,17,.97);
+/* o menu completo precisa de ~910px; abaixo disso vira o menu compacto */
+.brand,.nav-links a,.nav-cta{white-space:nowrap}
+@media (max-width:960px){
+  .nav-links{position:fixed;inset:64px 0 auto 0;background:rgba(7,10,31,.97);
     backdrop-filter:blur(16px);flex-direction:column;gap:0;padding:var(--s2) 0;
     border-bottom:1px solid var(--line);display:none}
   .nav-links.open{display:flex}
@@ -431,13 +423,14 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .nav-tog{display:block}
   .nav-cta{display:none}
 }
+@media (max-width:760px){
+  body{font-size:16px}
+  :root{--s6:60px;--s7:76px}
+}
 
-/* ============ o herói sobre o vídeo VERTICAL ============
-   Esta consulta tem que ser idêntica à PORTRAIT_Q do JavaScript, senão
-   a tela recebe uma filmagem e o layout de texto da outra.
-   As faixas se deitam sobre o quadro em vez de flanquear a ação, e cada
-   uma leva o escurecimento que o momento dela pede: o clímax lava tudo
-   de branco, o começo e o fim não. */
+/* ============ o herói no celular e no tablet em pé ============
+   Esta consulta tem que ser idêntica à PORTRAIT_Q do JavaScript: é ela
+   que decide onde o texto cai sobre as ondas. */
 @media (max-width:760px),(orientation:portrait) and (max-width:1024px){
   .hero{height:500vh}
   .band{padding:0 22px}
@@ -449,20 +442,20 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .band[data-pos="left"],.band[data-pos="right"]{
     align-items:flex-end;justify-content:flex-start;text-align:left;padding-bottom:15vh}
   .band[data-pos="left"]::before,.band[data-pos="right"]::before{
-    background:linear-gradient(0deg,rgba(4,6,14,.9) 0%,rgba(4,6,14,.7) 30%,
-      rgba(4,6,14,.22) 58%,rgba(4,6,14,0) 78%)}
+    background:linear-gradient(0deg,rgba(4,6,18,.9) 0%,rgba(4,6,18,.7) 30%,
+      rgba(4,6,18,.22) 58%,rgba(4,6,18,0) 78%)}
 
   .band[data-pos="top"]{align-items:center;justify-content:center;text-align:left;padding-top:0}
   .band[data-pos="top"] .band-in{width:100%}
   .band[data-pos="top"]::before{background:radial-gradient(ellipse 155% 27% at 50% 50%,
-    rgba(4,6,14,.86) 0%,rgba(4,6,14,.58) 46%,rgba(4,6,14,0) 88%)}
+    rgba(4,6,18,.86) 0%,rgba(4,6,18,.58) 46%,rgba(4,6,18,0) 88%)}
 
   .band[data-pos="settle"]{align-items:flex-start;justify-content:flex-start;
     text-align:left;padding-top:13vh}
   .band[data-pos="settle"] .sub{margin-left:0;margin-right:0}
   .band[data-pos="settle"] .cta-row{justify-content:flex-start}
   .band[data-pos="settle"]::before{background:radial-gradient(ellipse 160% 46% at 50% 24%,
-    rgba(4,6,14,.88) 0%,rgba(4,6,14,.66) 46%,rgba(4,6,14,0) 84%)}
+    rgba(4,6,18,.88) 0%,rgba(4,6,18,.66) 46%,rgba(4,6,18,0) 84%)}
 }
 @media (pointer:coarse){
   .btn,.hold-btn{min-height:44px}
@@ -474,27 +467,23 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 }
 @media (max-height:560px){.cue{display:none}}
 
-/* ============ o portão do herói estático: duas condições ============
-   O celular recebe o vídeo vertical, então sobram só os casos onde
-   jornada nenhuma cabe: aparelho deitado sem altura, e movimento reduzido. */
+/* ============ herói estático: aparelho deitado sem altura, ou movimento reduzido ============
+   Nesses casos o texto inteiro vira um bloco só, sobre o fundo parado. */
 @media (orientation:landscape) and (pointer:coarse) and (max-height:560px),
        (prefers-reduced-motion:reduce){
   .hero{height:auto}
-  .stage{position:relative;height:auto;min-height:100svh;display:flex;align-items:center;
-    background-image:linear-gradient(180deg,var(--canvas) 0%,rgba(8,10,17,.86) 14%,
-      rgba(8,10,17,.52) 40%,rgba(8,10,17,.34) 62%,rgba(8,10,17,.7) 100%),var(--static-bg);
-    background-size:cover,cover;background-position:center,center;background-repeat:no-repeat,no-repeat}
-  #hero,.ring,.cue{display:none}
-  .poster{display:none}
+  .stage{position:relative;height:auto;min-height:100vh;min-height:100svh;display:flex;align-items:center}
+  .cue{display:none}
   .bands{position:relative;inset:auto;width:100%}
   .band{position:relative;inset:auto;opacity:1 !important;display:none;
     padding:120px clamp(22px,6vw,80px) 90px}
   .band[data-pos="settle"]{display:flex;align-items:center;justify-content:flex-start;
     text-align:left;padding-top:120px}
+  /* o escurecimento some por completo antes da borda da caixa, sem deixar faixa */
   .band[data-pos="settle"]::before{inset:-14%;opacity:1;
-    background:radial-gradient(ellipse 116% 78% at 42% 50%,
-      rgba(4,6,14,.78) 0%,rgba(4,6,14,.56) 44%,rgba(4,6,14,0) 82%)}
-  .band[data-pos="settle"] .cta-row{justify-content:flex-start}
+    background:radial-gradient(ellipse 62% 48% at 32% 50%,
+      rgba(4,6,18,.74) 0%,rgba(4,6,18,.5) 45%,rgba(4,6,18,0) 100%)}
+  .band[data-pos="settle"] .cta-row{justify-content:flex-start;pointer-events:auto}
   .band[data-pos="settle"] .sub{margin-left:0;margin-right:0}
   .e-rise .w,.e-rise .sub,.e-rise .cta-row{opacity:1;transform:none}
 }
@@ -537,8 +526,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 
 <section class="hero" id="topo">
   <div class="stage" id="stage">
-    <div class="poster" id="poster" aria-hidden="true"></div>
-    <video id="hero" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+    <canvas id="bg" aria-hidden="true"></canvas>
     <div class="scrim" aria-hidden="true"></div>
 
     <div class="bands" id="bands">
@@ -569,7 +557,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 
       <div class="band e-rise" data-a="0.79" data-b="1" data-pos="settle">
         <div class="band-in">
-          <h2 data-split="word" data-seed="31">Cinco perguntas. Cinco coisas que funcionam.</h2>
+          <h2 data-split="word" data-seed="31">Três perguntas. Três coisas que funcionam.</h2>
           <p class="sub">Nenhuma delas nasceu de tutorial.</p>
           <div class="cta-row">
             <a class="btn primary" href="#projetos">Ver o que eu construí</a>
@@ -580,11 +568,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 
     </div>
 
-    <svg class="ring" id="ring" viewBox="0 0 48 48" aria-hidden="true">
-      <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3"
-              stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/>
-    </svg>
-    <div class="cue" id="cue" aria-hidden="true"><i></i>role</div>
+    <div class="cue" id="cue" aria-hidden="true"><i></i>rolar</div>
   </div>
 </section>
 
@@ -616,7 +600,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     <div class="wrap obs">
       <span class="kick rv">// <b>projetos</b></span>
       <h2 class="title rv">Cada um começou por uma pergunta</h2>
-      <p class="lede rv">A tecnologia veio depois, pra responder. Abaixo estão as cinco, com o que foi difícil em cada uma.</p>
+      <p class="lede rv">A tecnologia veio depois, pra responder. Abaixo estão as três, com o que foi difícil em cada uma.</p>
     </div>
 
     <div class="wrap projects">
@@ -626,31 +610,37 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
           <p class="proj-name">Lease Lens <span class="st">no ar</span></p>
           <h3 class="proj-q">Dá pra transformar uma pasta de contratos em PDF em respostas operacionais<span class="qm">?</span></h3>
           <dl>
-            <div><dt>o que eu fiz</dt><dd>Pipeline em camadas: extração com pdfplumber, estruturação por regex com score de confiança, SQLite, e consultas agregadas. Interface em Streamlit pra ver a carteira e testar um contrato na hora.</dd></div>
+            <div><dt>o que eu fiz</dt><dd>Pipeline em camadas: extração com pdfplumber, campos por regex com score de confiança, SQLite e SQL analítico. Por cima, uma API em FastAPI e uma interface em React que conta a resposta como uma história de scroll: o que vence em 90 dias, a linha do tempo de cada contrato e um laboratório pra testar um PDF na hora.</dd></div>
             <div><dt>o que foi difícil</dt><dd>Um regex de endereço parava no primeiro ponto e truncava o dado marcando 100% de confiança. Me ensinou que achou algo não é achou certo.</dd></div>
-            <div><dt>o que ficou</dt><dd>Extração de PDF, regex pra dado estruturado, SQL analítico, e arquitetura em camadas que separa domínio de interface. Tudo com contratos sintéticos, por escolha.</dd></div>
+            <div><dt>o que ficou</dt><dd>Extração de PDF, regex pra dado estruturado, SQL analítico e arquitetura em camadas que separa domínio de interface. No site publicado o PDF é lido no próprio navegador, com os mesmos regex em TypeScript, e o CI confere as duas versões contra o mesmo gabarito antes de publicar. Tudo com contratos sintéticos, por escolha.</dd></div>
           </dl>
-          <div class="stack"><span class="chip">Python</span><span class="chip">pdfplumber</span><span class="chip">SQLite</span><span class="chip">Streamlit</span></div>
+          <div class="stack"><span class="chip">Python</span><span class="chip">pdfplumber</span><span class="chip">SQLite</span><span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">TypeScript</span></div>
           <div class="proj-links">
-            <a class="btn" href="https://lease-lens.streamlit.app" target="_blank" rel="noopener">Abrir o app</a>
+            <a class="btn" href="https://educofseal.github.io/lease-lens/" target="_blank" rel="noopener">Abrir o app</a>
             <a class="btn" href="https://github.com/Educofseal/lease-lens" target="_blank" rel="noopener">Ver o código</a>
           </div>
         </div>
         <div class="proj-media rv">
-          <figure class="shot">
-            <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>lease-lens.streamlit.app</span></div>
-            <img src="assets/proj-leaselens.jpg" width="1920" height="1146" loading="lazy" decoding="async"
-                 alt="Painel do Lease Lens mostrando 8 contratos, aluguel médio de R$ 2662 e a tabela de contratos vencendo nos próximos 90 dias." />
-          </figure>
+          <div class="duo">
+            <figure class="shot">
+              <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>educofseal.github.io/lease-lens</span></div>
+              <img src="assets/proj-leaselens.webp" width="1440" height="1000" loading="lazy" decoding="async"
+                   alt="Página inicial do Lease Lens: a pergunta &quot;Quais vencem esse trimestre?&quot; ao lado de uma pilha de contratos de locação, com uma lupa destacando o fim da vigência em 11/2026." />
+            </figure>
+            <figure class="phone">
+              <img src="assets/proj-leaselens-celular.webp" width="780" height="1688" loading="lazy" decoding="async"
+                   alt="A mesma página no celular, com o texto e os botões empilhados numa coluna." />
+            </figure>
+          </div>
         </div>
       </article>
 
       <article class="proj obs">
         <div class="rv">
-          <p class="proj-name">Player2 <span class="st">grafos escritos à mão</span></p>
+          <p class="proj-name">Player2 <span class="st">projeto de disciplina</span></p>
           <h3 class="proj-q">E se uma recomendação não fosse caixa-preta<span class="qm">?</span></h3>
           <dl>
-            <div><dt>o que eu fiz</dt><dd>Cada pessoa virou um nó de um grafo ponderado: mais interesses em comum, aresta mais barata. Dijkstra ordena o feed, BFS mede distância social, DFS acha grupos.</dd></div>
+            <div><dt>o que eu fiz</dt><dd>Um app de matchmaking em que cada pessoa é um nó de um grafo ponderado. O peso da aresta é 1 / (1 + interesses em comum): mais afinidade, caminho mais barato. Dijkstra ordena o feed, BFS mede o grau de separação, DFS acha a comunidade.</dd></div>
             <div><dt>o que foi difícil</dt><dd>Escrever os três algoritmos sem biblioteca pronta e ainda manter o feed transparente. Cada card mostra o caminho e o custo até aquela pessoa.</dd></div>
             <div><dt>o que ficou</dt><dd>Grafos na prática, e a lição de que separar algoritmo de interface foi o que manteve o projeto compreensível pra mim mesmo semanas depois.</dd></div>
           </dl>
@@ -660,9 +650,20 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
           </div>
         </div>
         <div class="proj-media rv">
+          <div class="phones">
+            <figure class="phone">
+              <img src="assets/proj-player2-feed.webp" width="948" height="1724" loading="lazy" decoding="async"
+                   alt="Feed do Player2: o perfil de Diego com 75% de afinidade, três interesses em comum e o caminho Dijkstra até você, com custo 0,25." />
+            </figure>
+            <figure class="phone">
+              <img src="assets/proj-player2-matches.webp" width="948" height="1724" loading="lazy" decoding="async"
+                   alt="Tela de matches do Player2: a rede no grafo com 20 pessoas alcançáveis pelo DFS, 11 de primeiro grau e 9 de segundo grau pelo BFS." />
+            </figure>
+          </div>
+          <p class="media-note">O app rodando: o feed ordenado pelo Dijkstra e a sua rede, medida por BFS e DFS. Abaixo, o mesmo Dijkstra num grafo de exemplo.</p>
           <div class="hold" id="hold">
             <div class="hold-top">
-              <span class="hold-lb">o Dijkstra do Player2, rodando aqui</span>
+              <span class="hold-lb">Dijkstra num grafo de exemplo</span>
               <span class="hold-cost" id="holdcost">custo 0</span>
             </div>
             <svg class="graph" id="graph" viewBox="0 0 520 300" role="img"
@@ -682,63 +683,27 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
           <p class="proj-name">Pokédex <span class="st">no ar</span></p>
           <h3 class="proj-q">Como carregar 151 Pokémon de uma API sem a página congelar<span class="qm">?</span></h3>
           <dl>
-            <div><dt>o que eu fiz</dt><dd>JavaScript puro na PokéAPI: busca individual, grade dos 151 carregada em paralelo com Promise.all, clique pra detalhar.</dd></div>
-            <div><dt>o que foi difícil</dt><dd>Um por um travava tudo. Disparar todas as requisições juntas derrubou o tempo de dezenas de segundos pra cerca de um.</dd></div>
-            <div><dt>o que ficou</dt><dd>async/await e paralelismo na prática, erro de rede tratado com try/catch, e event delegation pra dar conta de muito clique com um listener só.</dd></div>
+            <div><dt>o que eu fiz</dt><dd>Uma Pokédex dos 151 de Kanto em JavaScript puro: o jogo de reconhecer o Pokémon pela silhueta, busca por nome, número ou tipo, filtros e uma ficha com fraquezas calculadas a partir da tabela de tipos.</dd></div>
+            <div><dt>o que foi difícil</dt><dd>Buscar um por um travava tudo. Disparar as requisições em paralelo com Promise.all derrubou o tempo de dezenas de segundos pra cerca de um. Depois o trabalho saiu do navegador: um script em Node baixa os dados da PokéAPI no build, e o site abre com uma requisição só.</dd></div>
+            <div><dt>o que ficou</dt><dd>async/await e paralelismo com limite, pré-processar em vez de buscar ao vivo, event delegation pra muitos cliques com um listener só, e dialog nativo com links que abrem direto na ficha.</dd></div>
           </dl>
-          <div class="stack"><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">PokéAPI</span></div>
+          <div class="stack"><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Node.js</span><span class="chip">PokéAPI</span><span class="chip">GitHub Actions</span></div>
           <div class="proj-links">
             <a class="btn" href="https://educofseal.github.io/Pokedex/" target="_blank" rel="noopener">Abrir o app</a>
             <a class="btn" href="https://github.com/Educofseal/Pokedex" target="_blank" rel="noopener">Ver o código</a>
           </div>
         </div>
         <div class="proj-media rv">
-          <figure class="shot">
-            <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>educofseal.github.io/Pokedex</span></div>
-            <img src="assets/proj-pokedex.jpg" width="1920" height="1111" loading="lazy" decoding="async"
-                 alt="Grade da Pokédex com os 151 de Kanto carregados, cada card com número, sprite e nome." />
-          </figure>
-        </div>
-      </article>
-
-      <article class="proj obs">
-        <div class="rv">
-          <p class="proj-name">Qualidade de Testes <span class="st">repositório privado</span></p>
-          <h3 class="proj-q">Que etapas existem entre o dado cru e o número que alguém usa pra decidir<span class="qm">?</span></h3>
-          <dl>
-            <div><dt>o que eu fiz</dt><dd>Pipeline em Python com validação de regra de negócio e 13 features derivadas, 10 consultas SQL incluindo window functions, e um dashboard em Power BI.</dd></div>
-            <div><dt>o que foi difícil</dt><dd>Garantir o dado confiável na origem antes de qualquer análise. Falha nunca maior que o total, percentual recalculado.</dd></div>
-            <div><dt>o que ficou</dt><dd>Que validar dado é parte do trabalho, não um detalhe. Sem isso, todo gráfico bonito em cima é mentira.</dd></div>
-          </dl>
-          <div class="stack"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">SQL</span><span class="chip">Power BI</span></div>
-          <div class="proj-links"><a class="btn" href="#contato">Pedir acesso</a></div>
-        </div>
-        <div class="proj-media rv">
-          <div class="noshot glow">
-            <span class="nm">regra que segura tudo</span>
-            <span class="nv">falhas <em>&le;</em> execuções</span>
-            <p class="nl">Checada na origem, antes de qualquer gráfico. 13 features derivadas e 10 consultas SQL em cima de uma base que passou nessa regra.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="proj obs">
-        <div class="rv">
-          <p class="proj-name">People Analytics <span class="st">repositório privado</span></p>
-          <h3 class="proj-q">Consigo traduzir pergunta de gente em métrica que se sustenta, sem inventar número<span class="qm">?</span></h3>
-          <dl>
-            <div><dt>o que eu fiz</dt><dd>Pipeline sobre 300 colaboradores com 11 features (custo com encargos, faixas, flags de risco), 10 consultas SQL, e um score multicritério de risco de retenção.</dd></div>
-            <div><dt>o que foi difícil</dt><dd>Modelar custo e risco de um jeito que eu conseguisse explicar numa reunião, não só calcular.</dd></div>
-            <div><dt>o que ficou</dt><dd>A parte difícil de dados raramente é a query. É fazer a pergunta certa e ser honesto com o que o número diz.</dd></div>
-          </dl>
-          <div class="stack"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">SQL</span><span class="chip">Power BI</span></div>
-          <div class="proj-links"><a class="btn" href="#contato">Pedir acesso</a></div>
-        </div>
-        <div class="proj-media rv">
-          <div class="noshot glow">
-            <span class="nm">a base do score</span>
-            <span class="nv">300 <em>·</em> 11 <em>·</em> 10</span>
-            <p class="nl">300 colaboradores, 11 features derivadas, 10 consultas SQL. O score de risco sai daí, e cada critério dele dá pra explicar em voz alta.</p>
+          <div class="duo">
+            <figure class="shot">
+              <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>educofseal.github.io/Pokedex</span></div>
+              <img src="assets/proj-pokedex.webp" width="1440" height="1000" loading="lazy" decoding="async"
+                   alt="Tela inicial da Pokédex: o desafio &quot;Você reconhece os 151 só pela sombra?&quot;, com a silhueta de um Pokémon e quatro opções de resposta." />
+            </figure>
+            <figure class="phone">
+              <img src="assets/proj-pokedex-celular.webp" width="780" height="1688" loading="lazy" decoding="async"
+                   alt="O mesmo desafio no celular, com a silhueta e as opções numa coluna." />
+            </figure>
           </div>
         </div>
       </article>
@@ -815,10 +780,9 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   <section id="faq" data-node>
     <div class="wrap obs">
       <span class="kick rv">// <b>antes de você perguntar</b></span>
-      <h2 class="title rv">As quatro que sempre vêm</h2>
+      <h2 class="title rv">As três que sempre vêm</h2>
       <div class="faq rv">
         <div class="qa"><h3>Quanto disso é tutorial?</h3><p>Nenhum deles começou em tutorial, e os três algoritmos do Player2 estão escritos à mão, sem biblioteca. Onde eu usei documentação e exemplo, foi pra entender uma API, não pra copiar um projeto. O código está aberto pra conferir.</p></div>
-        <div class="qa"><h3>Dois projetos estão privados. Por quê?</h3><p>Os dois de dados ainda estão privados enquanto eu limpo dado de exemplo. Me peça acesso e eu abro na hora, ou eu te mostro rodando numa call.</p></div>
         <div class="qa"><h3>Você é estudante. Dá pra confiar em código de estudante?</h3><p>Não dá pra confiar em promessa. Dá pra conferir código. Dois projetos estão no ar agora e você pode usar os dois antes de responder este site.</p></div>
         <div class="qa"><h3>Está atrás do quê?</h3><p>Estágio ou júnior, e trabalho pontual. O que eu procuro é lugar com gente que leva código a sério, onde dá pra construir, errar e entender.</p></div>
       </div>
@@ -839,9 +803,9 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
             <a class="btn" href="https://github.com/Educofseal" target="_blank" rel="noopener">GitHub</a>
           </div>
           <figure class="ending">
-            <img src="assets/hero-ending.jpg" width="1920" height="1072" loading="lazy" decoding="async"
-                 alt="O quadro final do vídeo do topo: um campo de luz uniforme sob um céu azul escuro." />
-            <figcaption>onde a descida termina</figcaption>
+            <img src="assets/banner-linkedin.webp" width="1584" height="396" loading="lazy" decoding="async"
+                 alt="Banner do perfil: Desenvolvimento de software, web e dados, com ondas ciano e violeta sobre fundo azul-marinho." />
+            <figcaption>o mesmo fundo, no LinkedIn</figcaption>
           </figure>
         </div>
 
@@ -888,30 +852,11 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
    0. base
    ============================================================ */
 var stage = document.getElementById('stage');
-var video = document.getElementById('hero');
-var posterEl = document.getElementById('poster');
-var ring = document.getElementById('ring');
-var cue = document.getElementById('cue');
 var heroSec = document.getElementById('topo');
 var bandEls = [].slice.call(document.querySelectorAll('.band'));
-
-// Duas filmagens: a deitada para telas largas e a VERTICAL para celular.
-// O corte vertical é dedicado, não um recorte acidental da deitada.
-var VIDEO_URL = 'assets/hero-scrub.mp4';
-var POSTER_URL = 'assets/hero-poster.jpg';
-var MOBILE_VIDEO_URL = 'assets/hero-mobile.mp4';
-var MOBILE_POSTER_URL = 'assets/hero-mobile-poster.jpg';
-var MOBILE_VIDEO_BYTES = 2548608;
-var PORTRAIT_Q = matchMedia('(max-width: 760px), (orientation: portrait) and (max-width: 1024px)');
-function heroSrc(){
-  return PORTRAIT_Q.matches
-    ? { v: MOBILE_VIDEO_URL, p: MOBILE_POSTER_URL, b: MOBILE_VIDEO_BYTES }
-    : { v: VIDEO_URL, p: POSTER_URL, b: VIDEO_BYTES };
-}
-var ENDING_URL = 'assets/hero-ending.jpg';
-var VIDEO_BYTES = 3519586;
-
-document.documentElement.style.setProperty('--static-bg', "url('" + ENDING_URL + "')");
+var cue = document.getElementById('cue');
+var cv = document.getElementById('bg');
+var cx = cv && cv.getContext ? cv.getContext('2d') : null;
 
 var clamp = function(v, lo, hi){ return Math.min(hi, Math.max(lo, v)); };
 var smoothstep = function(p, e0, e1){
@@ -941,9 +886,6 @@ bandEls.forEach(function(b){
   var vis = document.createElement('span');
   vis.setAttribute('aria-hidden', 'true');
 
-  var totalChars = text.replace(/ /g, '').length;
-  var ci = 0;
-
   words.forEach(function(w, wi){
     var ws = document.createElement('span');
     ws.className = 'w';
@@ -960,7 +902,6 @@ bandEls.forEach(function(b){
         cs.style.setProperty('--jy', ((rand() - 0.5) * 110).toFixed(1) + 'px');
         cs.style.setProperty('--jr', ((rand() - 0.5) * 34).toFixed(1) + 'deg');
         ws.appendChild(cs);
-        ci++;
       }
     }
     vis.appendChild(ws);
@@ -973,7 +914,7 @@ bandEls.forEach(function(b){
 });
 
 /* ============================================================
-   2. estado das faixas
+   2. estado das faixas de texto
    ============================================================ */
 var bands = bandEls.map(function(el){
   return {
@@ -989,6 +930,17 @@ var bands = bandEls.map(function(el){
 });
 bands[0].first = true;
 bands[bands.length - 1].last = true;
+
+// Se o foco do teclado cair numa faixa ainda escondida (os botões do fim do
+// topo, por exemplo), a página rola até a faixa aparecer.
+bands.forEach(function(bd){
+  bd.el.addEventListener('focusin', function(){
+    if (!scrubOn || bd.op > 0.5) return;
+    var range = heroSec.offsetHeight - window.innerHeight;
+    var p = Math.min(1, bd.a + (bd.b - bd.a) * 0.6);
+    window.scrollTo(0, heroSec.offsetTop + range * p);
+  });
+});
 
 var loadK = 0, loadStart = 0;
 var lastCueOp = -1;
@@ -1015,15 +967,128 @@ function updateCaptions(p){
     var k = clamp((p - bd.a) / ramp, 0, 1);
     if (bd.first) k = Math.max(k, loadK);
 
-    if (Math.abs(op - bd.op) > 0.004) { bd.op = op; bd.el.style.opacity = op.toFixed(3); }
+    if (Math.abs(op - bd.op) > 0.004) {
+      bd.op = op;
+      bd.el.style.opacity = op.toFixed(3);
+      var on = op > 0.5;
+      if (on !== bd.el.classList.contains('on')) bd.el.classList.toggle('on', on);
+    }
     if (Math.abs(k - bd.k) > 0.008) { bd.k = k; bd.el.style.setProperty('--k', k.toFixed(3)); }
   }
 }
 
 /* ============================================================
-   3. progresso do herói, lerp que descansa, seeks com trava
+   3. o fundo: ondas de luz, a mesma linguagem do banner do perfil
+   Ondas ciano e violeta sobre índigo, com brilho contido.
+   Rolar acelera as ondas, a faixa sobe e o feixe fecha ao fim.
    ============================================================ */
-var target = 0, shown = 0, rafId = null, lastTick = 0, heroOnScreen = true;
+var CW = 0, CH = 0, DPR = 1;
+var LINES = [];
+var pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+var clock = 0;
+
+function buildField(){
+  if (!cx) return;
+  var r = stage.getBoundingClientRect();
+  CW = Math.max(1, Math.round(r.width));
+  CH = Math.max(1, Math.round(r.height));
+  DPR = Math.min(1.75, window.devicePixelRatio || 1);
+  cv.width = Math.round(CW * DPR);
+  cv.height = Math.round(CH * DPR);
+  cx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+  var small = CW < 760;
+  var n = small ? 9 : 15;
+  var rnd = rng(20260301);
+  LINES = [];
+  for (var i = 0; i < n; i++) {
+    LINES.push({
+      off: i / (n - 1) - 0.5,
+      f1: 2.1 + rnd() * 0.9,
+      f2: 4.4 + rnd() * 1.8,
+      s1: 0.35 + rnd() * 0.35,
+      s2: -(0.5 + rnd() * 0.4),
+      p1: rnd() * 6.2832,
+      p2: rnd() * 6.2832,
+      a1: 0.6 + rnd() * 0.35,
+      a2: 0.16 + rnd() * 0.16,
+      al: 0.45 + rnd() * 0.5
+    });
+  }
+}
+
+// Altura de uma onda no ponto u (0 a 1 da largura) e no tempo t.
+function waveY(L, u, t, cy, spread){
+  var env = 0.55 + 0.45 * Math.sin(Math.PI * u);
+  var w = L.a1 * Math.sin(6.2832 * L.f1 * u + L.p1 + L.s1 * t) +
+          L.a2 * Math.sin(6.2832 * L.f2 * u + L.p2 + L.s2 * t);
+  return cy + L.off * spread * 2 + CH * 0.1 * env * w;
+}
+
+function drawField(t, p){
+  if (!cx || !LINES.length) return;
+  var cy = CH * (0.56 - 0.12 * p) + pointer.y * 16;
+  var spread = CH * (0.09 - 0.05 * p);
+  var hx = pointer.x * 36;
+
+  cx.globalCompositeOperation = 'source-over';
+  cx.globalAlpha = 1;
+  var bg = cx.createLinearGradient(0, 0, CW, CH);
+  bg.addColorStop(0, '#05071A');
+  bg.addColorStop(0.55, '#080D26');
+  bg.addColorStop(1, '#0C1233');
+  cx.fillStyle = bg;
+  cx.fillRect(0, 0, CW, CH);
+
+  var h1 = cx.createRadialGradient(CW * 0.24 + hx, cy, 0, CW * 0.24 + hx, cy, CW * 0.52);
+  h1.addColorStop(0, 'rgba(48,176,208,0.16)');
+  h1.addColorStop(1, 'rgba(48,176,208,0)');
+  cx.fillStyle = h1;
+  cx.fillRect(0, 0, CW, CH);
+
+  var h2 = cx.createRadialGradient(CW * 0.86 - hx, CH * 0.18, 0, CW * 0.86 - hx, CH * 0.18, CW * 0.46);
+  h2.addColorStop(0, 'rgba(96,80,200,0.18)');
+  h2.addColorStop(1, 'rgba(96,80,200,0)');
+  cx.fillStyle = h2;
+  cx.fillRect(0, 0, CW, CH);
+
+  var g = cx.createLinearGradient(0, 0, CW, 0);
+  g.addColorStop(0, 'rgba(48,190,220,0)');
+  g.addColorStop(0.2, 'rgba(48,190,220,1)');
+  g.addColorStop(0.55, 'rgba(84,110,230,0.9)');
+  g.addColorStop(0.85, 'rgba(124,100,240,0.5)');
+  g.addColorStop(1, 'rgba(124,100,240,0)');
+
+  var steps = CW < 760 ? 90 : 160;
+  cx.globalCompositeOperation = 'lighter';
+  cx.strokeStyle = g;
+  for (var i = 0; i < LINES.length; i++) {
+    var L = LINES[i];
+    cx.beginPath();
+    for (var s = 0; s <= steps; s++) {
+      var u = s / steps;
+      if (s === 0) cx.moveTo(0, waveY(L, u, t, cy, spread));
+      else cx.lineTo(u * CW, waveY(L, u, t, cy, spread));
+    }
+    cx.globalAlpha = L.al * 0.07;
+    cx.lineWidth = 3;
+    cx.stroke();
+    cx.globalAlpha = L.al * 0.58;
+    cx.lineWidth = 1;
+    cx.stroke();
+  }
+
+  cx.globalAlpha = 1;
+  cx.globalCompositeOperation = 'source-over';
+}
+
+/* ============================================================
+   4. progresso do herói e o quadro animado
+   ============================================================ */
+var target = 0, shown = 0, lastShown = 0, vel = 0;
+var rafId = null, lastFrame = 0, heroOnScreen = true;
+var scrubOn = false;
+var K_BASE = 0.22, K_GAIN = 10, K_MAX = 0.85;
 
 function heroProgress(){
   var r = heroSec.getBoundingClientRect();
@@ -1032,162 +1097,86 @@ function heroProgress(){
   return clamp(-r.top / range, 0, 1);
 }
 
-var seekBusy = false, pendingTime = null;
-function requestSeek(t){
-  if (!video.duration || !isFinite(t)) return;
-  if (seekBusy) { pendingTime = t; return; }
-  seekBusy = true;
-  try { video.currentTime = t; } catch (e) { seekBusy = false; }
-}
-video.addEventListener('seeked', function(){
-  seekBusy = false;
-  if (pendingTime !== null) { var t = pendingTime; pendingTime = null; requestSeek(t); }
-});
-video.addEventListener('error', function(){
-  seekBusy = false; pendingTime = null; failVideo();
-});
+function frame(now){
+  var dt = Math.min(64, now - (lastFrame || now));
+  lastFrame = now;
 
-// Suavização adaptativa: macia quando a rolagem é fina, firme quando ela corre.
-// Sem isso o vídeo fica quase uma tela inteira atrás numa rolagem rápida.
-var K_BASE = 0.22, K_GAIN = 10, K_MAX = 0.85;
-
-function tick(now){
-  var dt = Math.min(100, now - (lastTick || now));
-  lastTick = now;
+  // o texto segue o scroll com uma suavização que descansa
   var gap = Math.abs(target - shown);
   var k = Math.min(K_MAX, K_BASE + gap * K_GAIN);
   shown += (target - shown) * (1 - Math.pow(1 - k, dt / 16.667));
+
+  // quanto a página está se movendo: as ondas correm mais ao rolar
+  var step = Math.abs(shown - lastShown);
+  lastShown = shown;
+  vel += (clamp(step * 40, 0, 1) - vel) * 0.1;
+  clock += (dt / 1000) * (1 + 2.2 * vel);
+
+  // o ponteiro empurra o feixe levemente, pra dar profundidade
+  pointer.x += (pointer.tx - pointer.x) * 0.05;
+  pointer.y += (pointer.ty - pointer.y) * 0.05;
 
   if (loadK < 1) {
     if (!loadStart) loadStart = now;
     loadK = clamp((now - loadStart) / 900, 0, 1);
   }
 
-  var settled = Math.abs(target - shown) < 0.0005 && loadK >= 1;
-  if (settled) { shown = target; rafId = null; lastTick = 0; }
-  else { rafId = requestAnimationFrame(tick); }
-
-  if (video.duration) requestSeek(shown * video.duration);
+  drawField(clock, shown);
   updateCaptions(shown);
+  rafId = (scrubOn && heroOnScreen) ? requestAnimationFrame(frame) : null;
 }
 
 function kick(){
-  if (rafId === null && heroOnScreen) { lastTick = 0; rafId = requestAnimationFrame(tick); }
+  if (rafId === null && scrubOn && heroOnScreen) {
+    lastFrame = 0;
+    rafId = requestAnimationFrame(frame);
+  }
 }
 function onScroll(){ target = heroProgress(); kick(); }
+
+if (stage && stage.addEventListener) {
+  stage.addEventListener('pointermove', function(e){
+    if (e.pointerType !== 'mouse') return;
+    var r = stage.getBoundingClientRect();
+    pointer.tx = clamp((e.clientX - r.left) / r.width - 0.5, -0.5, 0.5) * 2;
+    pointer.ty = clamp((e.clientY - r.top) / r.height - 0.5, -0.5, 0.5) * 2;
+  }, { passive: true });
+  stage.addEventListener('pointerleave', function(){ pointer.tx = 0; pointer.ty = 0; });
+}
 
 if ('IntersectionObserver' in window) {
   new IntersectionObserver(function(es){
     heroOnScreen = es[0].isIntersecting;
     if (heroOnScreen) kick();
-    else if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
   }, { rootMargin: '120px' }).observe(heroSec);
 }
 
 /* ============================================================
-   4. carregar o vídeo como Blob, atrás de um anel honesto
+   5. o portão do herói estático: aparelho deitado sem altura, ou movimento reduzido
+   Têm que bater, caractere por caractere, com o media query do CSS lá em cima.
    ============================================================ */
-var heroInit = false, fetchStarted = false;
-
-function failVideo(){
-  if (stage.classList.contains('video-failed')) return;
-  stage.classList.add('video-failed');
-  if (ring) ring.style.display = 'none';
-  lastCueOp = -1;
-  updateCue(shown);
-}
-
-function startBlobFetch(){
-  if (fetchStarted) return;
-  fetchStarted = true;
-  loadHeroBlob().catch(failVideo);
-}
-
-var blobURL = null;
-
-function loadHeroBlob(){
-  var src = heroSrc();
-  var ctrl = new AbortController();
-  var watchdog = setTimeout(function(){ ctrl.abort(); }, 20000);
-  var opts = { signal: ctrl.signal };
-  try { opts.priority = 'low'; } catch (e) {}
-
-  return fetch(src.v, opts).then(function(res){
-    if (!res.ok || !res.body) throw new Error('sem corpo');
-    var total = Number(res.headers.get('Content-Length')) || src.b;
-    var reader = res.body.getReader();
-    var chunks = [], got = 0, lastRing = 0;
-
-    function pump(){
-      return reader.read().then(function(r){
-        if (r.done) return;
-        clearTimeout(watchdog);
-        watchdog = setTimeout(function(){ ctrl.abort(); }, 20000);
-        chunks.push(r.value);
-        got += r.value.length;
-        var frac = Math.min(1, got / total);
-        var now = performance.now();
-        if (now - lastRing > 100 || frac === 1) {
-          lastRing = now;
-          ring.style.setProperty('--ld', Math.round(126 * (1 - frac)));
-        }
-        return pump();
-      });
-    }
-
-    return pump().then(function(){
-      clearTimeout(watchdog);
-      ring.style.setProperty('--ld', 0);
-      if (blobURL) URL.revokeObjectURL(blobURL);
-      blobURL = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }));
-      video.src = blobURL;
-      video.load();
-      video.addEventListener('canplay', function(){
-        requestSeek(heroProgress() * video.duration);
-        stage.classList.add('video-ready');
-      }, { once: true });
-    });
-  });
-}
-
-function initHeroOnce(){
-  if (heroInit) return;
-  heroInit = true;
-  var src = heroSrc();
-  posterEl.style.backgroundImage = "url('" + src.p + "')";
-  var img = new Image();
-  img.onload = startBlobFetch;
-  img.onerror = startBlobFetch;
-  img.src = src.p;
-  setTimeout(startBlobFetch, 4000);
-}
-
-/* ============================================================
-   5. o portão do herói estático: cinco condições, ao vivo
-   ============================================================ */
-// Têm que bater, caractere por caractere, com o media query do CSS lá em cima.
 var GATES = [
   '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)',
   '(prefers-reduced-motion: reduce)'
 ];
 var MQLS = GATES.map(function(q){ return matchMedia(q); });
-var scrubOn = false;
 
 function enableScrub(){
   if (scrubOn) return;
   scrubOn = true;
-  initHeroOnce();
   window.addEventListener('scroll', onScroll, { passive: true });
   bands.forEach(function(b){ b.op = -1; b.k = -1; });
   unpinFinalStates();
-  updateCaptions(heroProgress());
   onScroll();
 }
 function disableScrub(){
-  if (!scrubOn) return;
-  scrubOn = false;
-  window.removeEventListener('scroll', onScroll);
+  if (scrubOn) {
+    scrubOn = false;
+    window.removeEventListener('scroll', onScroll);
+  }
   if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+  // o fundo fica num quadro parado e bonito, sem animação
+  drawField(0, heroProgress());
 }
 function applyHeroMode(){
   var off = MQLS.some(function(m){ return m.matches; });
@@ -1197,21 +1186,6 @@ MQLS.forEach(function(m){
   if (m.addEventListener) m.addEventListener('change', applyHeroMode);
   else if (m.addListener) m.addListener(applyHeroMode);
 });
-
-// Girar o aparelho troca a filmagem: a vertical e a deitada são cortes
-// diferentes, e manter a errada deixaria a composição fora de lugar.
-function swapHeroSource(){
-  if (!heroInit) return;
-  heroInit = false; fetchStarted = false;
-  stage.classList.remove('video-ready', 'video-failed');
-  seekBusy = false; pendingTime = null;
-  try { video.removeAttribute('src'); video.load(); } catch (e) {}
-  if (ring) { ring.style.display = ''; ring.style.setProperty('--ld', 126); }
-  initHeroOnce();
-  onScroll();
-}
-if (PORTRAIT_Q.addEventListener) PORTRAIT_Q.addEventListener('change', swapHeroSource);
-else if (PORTRAIT_Q.addListener) PORTRAIT_Q.addListener(swapHeroSource);
 
 /* ============================================================
    6. entradas, o fio, e os nós de seção
@@ -1474,7 +1448,13 @@ if (form) {
 /* ============================================================
    10. partida
    ============================================================ */
-function relayout(){ buildNodes(); lastFill = -1; drawSpine(); }
+function relayout(){
+  buildNodes();
+  lastFill = -1;
+  drawSpine();
+  buildField();
+  if (scrubOn) kick(); else drawField(0, heroProgress());
+}
 var rt = null;
 window.addEventListener('resize', function(){
   clearTimeout(rt);
