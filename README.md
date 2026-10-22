@@ -11,7 +11,7 @@ Desenvolvedor. Python, web e dados. Três projetos, três perguntas que vieram a
 | Projeto | A pergunta | Stack |
 |---|---|---|
 | [Lease Lens](https://educofseal.github.io/lease-lens/) | Dá pra transformar uma pasta de contratos em PDF em respostas operacionais? | Python, pdfplumber, SQLite, FastAPI, React, TypeScript |
-| [Player2](https://github.com/Educofseal/Player2) | E se uma recomendação não fosse caixa-preta? | Python, Flet, grafos escritos à mão |
+| [Player2](https://educofseal.github.io/Player2/) | E se uma recomendação não fosse caixa-preta? | Python, Flet, grafos escritos à mão |
 | [Pokédex](https://educofseal.github.io/Pokedex/) | Como carregar 151 Pokémon de uma API sem a página congelar? | JavaScript, Node.js, PokéAPI, GitHub Actions |
 
 As imagens dos projetos são capturas das aplicações rodando, feitas em 21/10/2026.
